@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="#" th:action="@{/process}" th:object="${todo}" method="post">
+    <input type="hidden" th:field="*{id}"/>
+    Task : <input type="text" th:field="*{name}"/>
+    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span><br/>
+
+    Date :  <input type="text" th:field="*{date}"/>
+    <span th:if="${#fields.hasErrors('date')}" th:errors="*{date}"></span><br/>
+
+    Priority : <input type="text" th:field="*{priority}"/>
+    <span th:if="${#fields.hasErrors('priority')}" th:errors="*{priority}"></span><br/>
+
+    <input type="submit" value="Submit"/>
+</form>
+</body>
+</html>
